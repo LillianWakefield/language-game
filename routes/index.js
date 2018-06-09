@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const setupAuth = require('./auth');
+//const setupAuth = require('./auth');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
