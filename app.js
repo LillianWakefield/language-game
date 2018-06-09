@@ -4,6 +4,8 @@ var handlebars = require('handlebars');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var GitHubStrategy = require('passport-github').Strategy;
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
