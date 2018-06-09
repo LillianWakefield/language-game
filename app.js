@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var GitHubStrategy = require('passport-github').Strategy;
+const setupAuth = require('./auth');
 
 
 var indexRouter = require('./routes/index');
