@@ -20,7 +20,7 @@ const setupAuth = (app) => {
     passport.use(new GitHubStrategy({
         clientID: "9c6f9733180638093a3e",
         clientSecret: "dd3676a334855c0b6db74e7550f38627d112c93c",
-        callbackURL: "https://chilangos.herokuapp.com/github/auth"
+        callbackURL: "https://chilangos.herokuapp.com/login"
     }, (accessToken, refreshToken, profile, done) => {
         User.findOrCreate({where: {
             githubid: profile.id
