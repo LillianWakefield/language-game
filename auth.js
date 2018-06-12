@@ -1,8 +1,11 @@
 const passport = require('passport');
+//const JwtStrategy - require('passport-jwt').Strategy;
+//const { ExtractJwt } = require('passport-jwt');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-//const User = require('./models/user');
+// const models = require('./models');
+const User = require('./models/user');
 
 
 
