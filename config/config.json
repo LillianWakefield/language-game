@@ -17,7 +17,7 @@
     "username": "root",
     "password": null,
     "database": "Database",
-    "host": "postgres://hmnkedwbonngcv:659c311e16d62673193fc81c722d8ee05b75dec14558451591d9962a4e5d641b@ec2-23-23-226-190.compute-1.amazonaws.com:5432/deifsfdnk4q9p5",
+    "host": "https://chilangosproj.herokuapp.com/",
     "dialect": "postgres"
   }
 }
