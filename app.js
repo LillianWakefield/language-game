@@ -11,7 +11,7 @@ const dotenv = require("dotenv");
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-dontenv.load();
+dotenv.load();
 
 let app = express();
 
