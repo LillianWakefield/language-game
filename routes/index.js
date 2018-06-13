@@ -3,7 +3,13 @@ var router = express.Router();
 const models = require('../models');
 
 //const setupAuth = require('./auth');
-
+const shuffleArray = array => {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+  
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Chilangos' });
@@ -17,13 +23,16 @@ router.get('/home', function(req, res, next) {
 
   models.Question.findAll()
   .then(questions => {
+    let answers = [questions[1].option_1, questions[1].option_2, questions[1].option_3, questions[1].correct_answer];
+    shuffleArray(answers);
+
     res.render('home', {
       phrase: questions[1].phrase,
       id: questions[1].id,
-      answer1: questions[1].option_1,
-      answer2: questions[1].option_2,
-      answer3: questions[1].option_3,
-      answer4: questions[1].correct_answer,
+      answer1: answers[0],
+      answer2: answers[1],
+      answer3: answers[2],
+      answer4: answers[3],
       score: "0" //ToDo: Return actual score
     });
   });
