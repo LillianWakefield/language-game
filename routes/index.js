@@ -23,6 +23,7 @@ router.get('/home', function(req, res, next) {
 
   models.Question.findAll()
   .then(questions => {
+    shuffleArray(questions);
     let answers = [questions[1].option_1, questions[1].option_2, questions[1].option_3, questions[1].correct_answer];
     shuffleArray(answers);
 
