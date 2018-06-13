@@ -6,11 +6,12 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let GitHubStrategy = require('passport-github').Strategy;
 const setupAuth = require('./auth');
+const dotenv = require("dotenv");
 
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-
+dontenv.load();
 
 let app = express();
 
