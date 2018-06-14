@@ -21,6 +21,7 @@
     "passport-github": "^1.1.0",
     "passport-jwt": "^4.0.0",
     "pg": "^7.4.3",
+    "psql": "0.0.1",
     "sequelize": "^4.37.10",
     "sequelize-cli": "^4.0.0"
   }
