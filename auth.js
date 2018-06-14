@@ -1,11 +1,10 @@
 const passport = require('passport');
-//const JwtStrategy - require('passport-jwt').Strategy;
-//const { ExtractJwt } = require('passport-jwt');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-// const models = require('./models');
 const User = require('./models/user');
+const Sequelize = require('sequelize');
+
 
 
 
@@ -15,7 +14,7 @@ const setupAuth = (app) => {
     app.use(cookieParser());
 
     app.use(session({
-        secret: 'whatIsThis',
+        secret: 'secretCode',
         resave: true,
         saveUninitialized: true
     }));
@@ -23,15 +22,20 @@ const setupAuth = (app) => {
     passport.use(new GitHubStrategy({
         clientID: "9c6f9733180638093a3e",
         clientSecret: "dd3676a334855c0b6db74e7550f38627d112c93c",
-        callbackURL: "https://chilangos.herokuapp.com/login"
+        callbackURL: "https://chilangosproj.herokuapp.com/github/auth"
     }, (accessToken, refreshToken, profile, done) => {
-        User.findOrCreate({where: {
-            githubid: profile.id
-        }}).then(result => {
-            return done(null, result[0]);
+        User.findOrCreate({
+            where: {
+                githubId: profile.id
+            }
         })
-        .catch(done)
-    }));
+            .then(result => {
+                return done(null, result[0]);
+            })
+            .catch(err => { // .catch(done);
+                done(err);
+            })
+    }))
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -53,7 +57,7 @@ const setupAuth = (app) => {
     app.get('/github/auth',
         passport.authenticate('github', { failureRedirect: '/login'}),
         (req, res) => {
-            res.redirect('/');
+            res.redirect('/home');
         });
 };
 const ensureAuthenticated = (req, res, next) => {
