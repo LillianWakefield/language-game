@@ -61,7 +61,7 @@ const setupAuth = (app) => {
         passport.authenticate('github', { failureRedirect: '/login' }),
         function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/');
+        res.redirect('/home');
   });
 };
 const ensureAuthenticated = (req, res, next) => {
