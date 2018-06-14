@@ -2,7 +2,8 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const User = require('../models/user');
+const models = require('./models');
+
 //const Sequelize = require('sequelize');
 
 
@@ -25,7 +26,7 @@ const setupAuth = (app) => {
         clientSecret: "dd3676a334855c0b6db74e7550f38627d112c93c",
         callbackURL: "https://chilangosproj.herokuapp.com/github/auth"
     }, (accessToken, refreshToken, profile, done) => {
-        User.findOrCreate({
+        models.User.findOrCreate({
             where: {
                 githubId: profile.id
             }
