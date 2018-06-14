@@ -26,7 +26,7 @@ const setupAuth = (app) => {
     }, (accessToken, refreshToken, profile, done) => {
         User.findOrCreate({
             where: {
-                github_id: profile.id
+                githubid: profile.id
             }
         })
             .then(result => {
