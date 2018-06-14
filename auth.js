@@ -22,13 +22,18 @@ const setupAuth = (app) => {
         clientSecret: "dd3676a334855c0b6db74e7550f38627d112c93c",
         callbackURL: "https://chilangosproj.herokuapp.com/login"
     }, (accessToken, refreshToken, profile, done) => {
-        User.findOrCreate({where: {
-            githubid: profile.id
-        }}).then(result => {
-            return done(null, result[0]);
+        User.findOrCreate({
+            where: {
+                github_id: profile.id
+            }
         })
-        .catch(done)
-    }));
+            .then(result => {
+                return done(null, result[0]);
+            })
+            .catch(err => { // .catch(done);
+                done(err);
+            })
+    }))
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -47,7 +52,7 @@ const setupAuth = (app) => {
         res.redirect('/');
     });
 
-    app.get('/login',
+    app.get('/github/auth',
         passport.authenticate('github', { failureRedirect: '/login'}),
         (req, res) => {
             res.redirect('/');
