@@ -3,7 +3,9 @@ const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const User = require('./models/user');
-//const Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('postgres://hmnkedwbonngcv:659c311e16d62673193fc81c722d8ee05b75dec14558451591d9962a4e5d641b@https://chilangosproj.herokuapp.com:5432/deifsfdnk4q9p5') 
+
 
 
 
@@ -49,6 +51,7 @@ const setupAuth = (app) => {
     app.use(passport.session());
 
     app.get('/login', passport.authenticate('github'));
+
     app.get('/logout', function(req, res, next){
         req.logout();
         res.redirect('/');
