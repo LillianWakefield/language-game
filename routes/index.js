@@ -17,5 +17,8 @@ router.get('/home', function(req, res, next) {
                       answer3: "to be fed up!",
                       answer4: "what a mother!",
                       score: 0 });
+  
 });
+
+
 module.exports = router;
