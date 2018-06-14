@@ -47,7 +47,7 @@ const setupAuth = (app) => {
         res.redirect('/');
     });
 
-    app.get('/github/auth',
+    app.get('/login',
         passport.authenticate('github', { failureRedirect: '/login'}),
         (req, res) => {
             res.redirect('/');
