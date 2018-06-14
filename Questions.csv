@@ -1,28 +1,28 @@
-"id","phrase","literal_translation","option_1","option_2","option_3","correct_answer"
-2,"Hasta la madre","Until the mother","Goodbye mom!","Your mother!","To be very excited.","To be fed up."
-1,"Que onda","What wave","What's your number?","Cool.","I feel sick.","What's up?"
-4,"A toda madre","To all mother","It's my mom.","What a mother.","This sucks!","Awesome!"
-3,"Me vale madre","To me it's worth mother","This is my mom.","It's worth it.","It's not worth it.","I don't care."
-5,"Que poca madre","What little mother","That's not my mom.","Oh my god!","What happened?","How dare you!"
-6,"Que padre","What father","Who's your dad?","Oh no!","It's my dad.","Cool!"
-7,"No mames","No sucking","No whining.","Don't suck","That's bad.","No way."
-8,"No manches","No staining","Don't chew with your mouth open.","Really?!","Awesome","No way."
-9,"Que pedo","What fart","What?","Who farted?","That's terrible.","What's up?"
-10,"Donde esta la peda","Where is the fart","Where are we going?","Who farted?","What happened?","Where's the party?"
-11,"Estar pedo","To be fart","The Easter Bunny.","To be smelly.","To be negative.","To be drunk."
-12,"Estar en pedo","To be in a fart","Let's walk.","You're smelly!","To be happy.","To be in trouble/ a bad situation."
-13,"No hay pedo","There is no fart","I don't want to go.","Let's go!","There is no choice.","There is no problem."
-14,"Aguas","Waters","Drinks","A fun party.","I don't know.","Watch out!"
-15,"Crudo","Raw","Dirty.","New.","Exhausted.","Hungover."
-16,"Esta cañón","It's cannon","It's big.","Don't worry!","It's fake.","Cool!"
-17,"A huevo","To the egg","Too heavy.","Let's get out of here.","I'm tired.","Of course."
-18,"Cámara","Camera","Cute.","Do something!","Calm down.","Right on!"
-19,"Media naranja","Half orange","Spoiled.","Funny.","A not smart person.","My other/better half."
-20,"Fresa","Strawberry","A cold drink.","Something to avoid.","Cool!","A preppy stuck up person."
-21,"A poco","A little","A small boy.","In a little while.","What happened?","Oh, really?"
-22,"Neta","New","What's up?","Very old.","Funny.","Is that true?"
-23,"Mande","Orders","Bossy.","Creative.","What happened?","What/ say that again?"
-24,"Ahorita","Little now","My sister.","A big person.","Right now!","In 2-3 hours."
-25,"No hay bronca","There is no row","There's no hay for the horse.","That's not true.","A boring party.","No problem."
-26,"Jefe/Jefa","Boss","Fatty.","Boyfriend/ girlfriend.","Small person.","Dad/Mom."
-27,"Mala copa","Bad cup","A mean cop.","A rigged game. ","A pretty woman.","A bad drunk."
+id,phrase,literal_translation,option_1,option_2,option_3,correct_answer,createdAt,updatedAt
+2,Hasta la madre,Until the mother,Goodbye mom!,Your mother!,To be very excited.,To be fed up.,NOW,NOW
+1,Que onda,What wave,What's your number?,Cool.,I feel sick.,What's up?,NOW,NOW
+4,A toda madre,To all mother,It's my mom.,What a mother.,This sucks!,Awesome!,NOW,NOW
+3,Me vale madre,To me it's worth mother,This is my mom.,It's worth it.,It's not worth it.,I don't care.,NOW,NOW
+5,Que poca madre,What little mother,That's not my mom.,Oh my god!,What happened?,How dare you!,NOW,NOW
+6,Que padre,What father,Who's your dad?,Oh no!,It's my dad.,Cool!,NOW,NOW
+7,No mames,No sucking,No whining.,Don't suck,That's bad.,No way.,NOW,NOW
+8,No manches,No staining,Don't chew with your mouth open.,Really?!,Awesome,No way.,NOW,NOW
+9,Que pedo,What fart,What?,Who farted?,That's terrible.,What's up?,NOW,NOW
+10,Donde esta la peda,Where is the fart,Where are we going?,Who farted?,What happened?,Where's the party?,NOW,NOW
+11,Estar pedo,To be fart,The Easter Bunny.,To be smelly.,To be negative.,To be drunk.,NOW,NOW
+12,Estar en pedo,To be in a fart,Let's walk.,You're smelly!,To be happy.,To be in trouble/ a bad situation.,NOW,NOW
+13,No hay pedo,There is no fart,I don't want to go.,Let's go!,There is no choice.,There is no problem.,NOW,NOW
+14,Aguas,Waters,Drinks,A fun party.,I don't know.,Watch out!,NOW,NOW
+15,Crudo,Raw,Dirty.,New.,Exhausted.,Hungover.,NOW,NOW
+16,Esta cañón,It's cannon,It's big.,Don't worry!,It's fake.,Cool!,NOW,NOW
+17,A huevo,To the egg,Too heavy.,Let's get out of here.,I'm tired.,Of course.,NOW,NOW
+18,Cámara,Camera,Cute.,Do something!,Calm down.,Right on!,NOW,NOW
+19,Media naranja,Half orange,Spoiled.,Funny.,A not smart person.,My other/better half.,NOW,NOW
+20,Fresa,Strawberry,A cold drink.,Something to avoid.,Cool!,A preppy stuck up person.,NOW,NOW
+21,A poco,A little,A small boy.,In a little while.,What happened?,"Oh, really?",NOW,NOW
+22,Neta,New,What's up?,Very old.,Funny.,Is that true?,NOW,NOW
+23,Mande,Orders,Bossy.,Creative.,What happened?,What/ say that again?,NOW,NOW
+24,Ahorita,Little now,My sister.,A big person.,Right now!,In 2-3 hours.,NOW,NOW
+25,No hay bronca,There is no row,There's no hay for the horse.,That's not true.,A boring party.,No problem.,NOW,NOW
+26,Jefe/Jefa,Boss,Fatty.,Boyfriend/ girlfriend.,Small person.,Dad/Mom.,NOW,NOW
+27,Mala copa,Bad cup,A mean cop.,A rigged game. ,A pretty woman.,A bad drunk.,NOW,NOW
