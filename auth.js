@@ -3,7 +3,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const User = require('./models/user');
-const Sequelize = require('sequelize');
+//const Sequelize = require('sequelize');
 
 
 
@@ -54,14 +54,12 @@ const setupAuth = (app) => {
         res.redirect('/');
     });
 
-    app.get('/auth/github',
-    passport.authenticate('github'));
-
-    app.get('/auth/github/callback', 
-        passport.authenticate('github', { failureRedirect: '/login' }),
-        function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/home');
+    app.get('/github/auth',
+        passport.authenticate('github', {
+            failureRedirect: '/login'
+        }),
+        (req, res) => {
+            res.redirect('/');
   });
 };
 const ensureAuthenticated = (req, res, next) => {
