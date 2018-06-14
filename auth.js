@@ -61,7 +61,7 @@ const setupAuth = (app) => {
             failureRedirect: '/login'
         }),
         (req, res) => {
-            res.redirect('/home');
+            res.redirect('/');
   });
 };
 const ensureAuthenticated = (req, res, next) => {
