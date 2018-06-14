@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'stuff here for github' });
+  //res.render('login', { title: 'stuff here for github' });
 });
 
 router.get('/home', function(req, res, next) {

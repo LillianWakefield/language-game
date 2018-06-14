@@ -1,10 +1,7 @@
 const passport = require('passport');
-//const JwtStrategy - require('passport-jwt').Strategy;
-//const { ExtractJwt } = require('passport-jwt');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-// const models = require('./models');
 const User = require('./models/user');
 
 
@@ -23,7 +20,7 @@ const setupAuth = (app) => {
     passport.use(new GitHubStrategy({
         clientID: "9c6f9733180638093a3e",
         clientSecret: "dd3676a334855c0b6db74e7550f38627d112c93c",
-        callbackURL: "http://chilangosproj.herokuapp.com/login"
+        callbackURL: "https://chilangosproj.herokuapp.com/login"
     }, (accessToken, refreshToken, profile, done) => {
         User.findOrCreate({where: {
             githubid: profile.id
