@@ -3,6 +3,8 @@ const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const User = require('./models/user');
+const Sequelize = require('sequelize');
+
 
 
 
@@ -12,7 +14,7 @@ const setupAuth = (app) => {
     app.use(cookieParser());
 
     app.use(session({
-        secret: 'whatIsThis',
+        secret: 'secretCode',
         resave: true,
         saveUninitialized: true
     }));
