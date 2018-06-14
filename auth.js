@@ -54,11 +54,15 @@ const setupAuth = (app) => {
         res.redirect('/');
     });
 
-    app.get('/github/auth',
-        passport.authenticate('github', { failureRedirect: '/login'}),
-        (req, res) => {
-            res.redirect('/home');
-        });
+    app.get('/auth/github',
+    passport.authenticate('github'));
+
+    app.get('/auth/github/callback', 
+        passport.authenticate('github', { failureRedirect: '/login' }),
+        function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+  });
 };
 const ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
