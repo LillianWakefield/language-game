@@ -5,17 +5,17 @@ const models = require('../models');
 //const setupAuth = require('./auth');
 const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
-  
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Chilangos' });
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/login', function (req, res, next) {
   //res.render('login', { title: 'stuff here for github' });
 });
 

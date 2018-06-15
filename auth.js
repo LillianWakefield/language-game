@@ -2,8 +2,10 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const User = require('./models/user');
-const Sequelize = require('sequelize');
+const models = require('./models');
+
+//const Sequelize = require('sequelize');
+
 
 
 
@@ -24,9 +26,9 @@ const setupAuth = (app) => {
         clientSecret: "dd3676a334855c0b6db74e7550f38627d112c93c",
         callbackURL: "https://chilangosproj.herokuapp.com/github/auth"
     }, (accessToken, refreshToken, profile, done) => {
-        User.findOrCreate({
+        models.User.findOrCreate({
             where: {
-                githubId: profile.id
+                githubid: profile.id
             }
         })
             .then(result => {
@@ -49,22 +51,25 @@ const setupAuth = (app) => {
     app.use(passport.session());
 
     app.get('/login', passport.authenticate('github'));
+
     app.get('/logout', function(req, res, next){
         req.logout();
         res.redirect('/');
     });
 
     app.get('/github/auth',
-        passport.authenticate('github', { failureRedirect: '/login'}),
+        passport.authenticate('github', {
+            failureRedirect: '/login'
+        }),
         (req, res) => {
             res.redirect('/home');
-        });
+  });
 };
 const ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/login');
+    res.redirect('/home');
 }
 module.exports = setupAuth;
 module.exports.ensureAuthenticated = ensureAuthenticated;
