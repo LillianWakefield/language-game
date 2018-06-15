@@ -19,50 +19,59 @@ router.get('/login', function (req, res, next) {
   //res.render('login', { title: 'stuff here for github' });
 });
 
-router.get('/home', function (req, res, next) {
+let shuffledQuestions;
+let answers;
+let score = 0;
+let previousQuestion;
+let remainQuestions;
 
-  let answerMessage = req.query.answerStatus;
-  console.log(answerMessage);
+router.get('/home', function(req, res, next) {
 
   models.Question.findAll()
-    .then(questions => {
-      shuffleArray(questions);
-      let answers = [questions[1].option_1, questions[1].option_2, questions[1].option_3, questions[1].correct_answer];
-      shuffleArray(answers);
+  .then(questions => {
+    shuffleArray(questions);
+    shuffledQuestions = questions;
+    answers = [questions[0].option_1, questions[0].option_2, questions[0].option_3, questions[0].correct_answer];
+    shuffleArray(answers);
 
-      res.render('home', {
-        phrase: questions[1].phrase,
-        id: questions[1].id,
-        answer1: answers[0],
-        answer2: answers[1],
-        answer3: answers[2],
-        answer4: answers[3],
-        answerStatus: answerMessage,
-        score: "0" //ToDo: Return actual score
-      });
+    res.render('home', {
+      phrase: questions[0].phrase,
+      answer1: answers[0],
+      answer2: answers[1],
+      answer3: answers[2],
+      answer4: answers[3],
+      score: score //ToDo: Return actual score
     });
+  });
 });
 
-router.post('/home', function (req, res, next) {
-
-  // For testing
-  console.log(req.body.question_id);
-  console.log(req.body.answer);
-
-  models.Question.findById(req.body.question_id)
-    .then(question => {
-      let answerMessage = '';
-      if (question.correct_answer == req.body.answer) {
-        answerMessage = encodeURIComponent("correct");
-      }
-      else {
-        answerMessage = encodeURIComponent("incorrect");
-      }
-
-      res.redirect('home?answerStatus=' + answerMessage);
-
+router.post('/home', function(req, res, next) {
+  
+  previousQuestion = shuffledQuestions.shift();
+  if(shuffledQuestions.length == 0){
+    if(req.body.answer == previousQuestion.correct_answer){score += 1;}
+    res.render('endGame', {
+      answerStatus: "End of questions!",
+      score: score
     });
+    score = 0;
+  }
+  if(req.body.answer == previousQuestion.correct_answer){score += 1;}
 
+  shuffleArray(shuffledQuestions);
+  answers = [shuffledQuestions[0].option_1, shuffledQuestions[0].option_2, shuffledQuestions[0].option_3, shuffledQuestions[0].correct_answer];
+  shuffleArray(answers);
+  
+  res.render('home', {
+    phrase: shuffledQuestions[0].phrase,
+      answer1: answers[0],
+      answer2: answers[1],
+      answer3: answers[2],
+      answer4: answers[3],
+      score: score 
+  });
+
+  
 });
 
 module.exports = router;
