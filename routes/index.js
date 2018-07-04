@@ -36,11 +36,12 @@ router.get('/home', function(req, res, next) {
 
     res.render('home', {
       phrase: questions[0].phrase,
+      literal_translation: questions[0].literal_translation,
       answer1: answers[0],
       answer2: answers[1],
       answer3: answers[2],
       answer4: answers[3],
-      score: score //ToDo: Return actual score
+      score: score 
     });
   });
 });
@@ -56,7 +57,11 @@ router.post('/home', function(req, res, next) {
     });
     score = 0;
   }
-  if(req.body.answer == previousQuestion.correct_answer){score += 1;}
+  if(req.body.answer == previousQuestion.correct_answer){
+    score += 1;
+    answerStatus= "Correct!";
+}
+else {answerStatus= "Incorrect"}
 
   shuffleArray(shuffledQuestions);
   answers = [shuffledQuestions[0].option_1, shuffledQuestions[0].option_2, shuffledQuestions[0].option_3, shuffledQuestions[0].correct_answer];
@@ -64,14 +69,16 @@ router.post('/home', function(req, res, next) {
   
   res.render('home', {
     phrase: shuffledQuestions[0].phrase,
+    literal_translation: shuffledQuestions[0].literal_translation,
       answer1: answers[0],
       answer2: answers[1],
       answer3: answers[2],
       answer4: answers[3],
-      score: score 
+      score: score, 
+      answerStatus: answerStatus
+      
   });
 
-  
 });
 
 module.exports = router;

@@ -21,23 +21,34 @@ h3 {
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: rgba(0, 0, 0, 0.603);
-  margin-top: 0.5%;
-  font-family: 'Luckiest Guy', cursive;
+  background-color: #EF476F;
+  margin-top: 5%;
+  margin-bottom: 5%;
   letter-spacing: 2.5px;
   color: whitesmoke;
 }
-#particles-js {
+.answers{
+  display: flex;
+  flex-direction: column;
+}
+.answers .btn {
+  margin: 2%
+}
+#background {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("../img/bg.jpg") center center no-repeat;
+  background-color: #FFD166;
   background-size: cover;
+  background-image: url("/img/skull.png");
+  background-repeat: repeat space;
+  background-size: 15%
 }
 a {
   width: 400px;
 }
 /* Grow */
+
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;
@@ -54,7 +65,7 @@ a {
 .hvr-grow:active {
   transform: scale(1.1);
 }
-/* Bounce To Right */
+/* Bounce To Right 
 .hvr-bounce-to-right {
   display: inline-block;
   vertical-align: middle;
@@ -97,7 +108,7 @@ a {
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
-/* Bounce To Left */
+Bounce To Left 
 .hvr-bounce-to-left {
   display: inline-block;
   vertical-align: middle;
@@ -146,4 +157,4 @@ a {
 
 .incorrect {
   color: #D3072A;
-}
+}*/

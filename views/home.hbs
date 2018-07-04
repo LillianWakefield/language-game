@@ -1,18 +1,21 @@
 <div class="main-container">
     <div class="card text-center">
         <div class="card-body">
-            <h3>What is the meaning of this phrase?</h3>
-            <h1>{{phrase}}</h1>
-            <form action="/home" method="POST">
+            <h3>Phrase in Spanish: {{phrase}}</h3>
+            <h3>Literal translation: {{literal_translation}}</h3>
+            <h3>What you think it means:</h3>
+            <form action="/home" method="POST" class="answers">
                 <input type="hidden" name="question_id" value="{{id}}">
-                <button type="submit" class="btn btn-outline-light btn-lg btn-block hvr-grow hvr-bounce-to-left" name="answer" value="{{answer1}}">{{answer1}}</button>
-                <button type="submit" class="btn btn-outline-light btn-lg btn-block hvr-grow hvr-bounce-to-right"name="answer" value="{{answer2}}">{{answer2}}</button>
-                <button type="submit" class="btn btn-outline-light btn-lg btn-block hvr-grow hvr-bounce-to-left" name="answer" value="{{answer3}}">{{answer3}}</button>
-                <button type="submit" class="btn btn-outline-light btn-lg btn-block hvr-grow hvr-bounce-to-right"name="answer" value="{{answer4}}">{{answer4}}</button>
+                <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer1}}">{{answer1}}</button>
+                <button type="submit" class="btn btn-outline-light btn-lg hvr-grow"name="answer" value="{{answer2}}">{{answer2}}</button>
+                <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer3}}">{{answer3}}</button>
+                <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer4}}">{{answer4}}</button>
             </form>
-            <h1 class="status_message {{answerStatus}}">{{answerStatus}}</h1>
-            <h1>SCORE {{score}}</h1>
-            <a href="/" class="btn btn-outline-light hvr-grow hvr-bounce-to-left">Log Out</a>
+            <h3>{{answerStatus}}</h3>
+            <button class="btn btn-outline-light btn-lg hvr-grow">Try Again</button>
+            <button class="btn btn-outline-light btn-lg hvr-grow">Continue</button>
+            <h1>SCORE: {{score}}</h1>
+            <a href="/" class="btn btn-outline-light btn-lg hvr-grow">Log Out</a>
 
         </div>
     </div>
