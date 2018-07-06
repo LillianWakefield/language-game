@@ -26,13 +26,24 @@ h3 {
   margin-bottom: 5%;
   letter-spacing: 2.5px;
   color: whitesmoke;
+  width: 50%
 }
 .answers{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 .answers .btn {
-  margin: 2%
+  margin: 2%;
+  width: 50%
+}
+.small {
+  width: 25%;
+}
+.large {
+  width:50%
 }
 #background {
   position: fixed;

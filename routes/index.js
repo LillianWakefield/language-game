@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 const models = require('../models');
 
+const app = express();
+app.use(express.static('public'));
+
+
+// serve the homepage
+app.get('/home', (req, res) => {
+  res.sendFile(__dirname + '/home.hbs');
+});
+
 //const setupAuth = require('./auth');
 const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -10,9 +19,11 @@ const shuffleArray = array => {
   }
 }
 
+
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Chilangos' });
+  res.render('index', { title: 'Chislango' });
 });
 
 router.get('/login', function (req, res, next) {
@@ -24,8 +35,10 @@ let answers;
 let score = 0;
 let previousQuestion;
 let remainQuestions;
+let tryAgain= "disabled";
 
 router.get('/home', function(req, res, next) {
+ // res.sendFile(__dirname + '/index.hbs');
 
   models.Question.findAll()
   .then(questions => {
@@ -41,7 +54,8 @@ router.get('/home', function(req, res, next) {
       answer2: answers[1],
       answer3: answers[2],
       answer4: answers[3],
-      score: score 
+      score: score,
+      tryAgain: tryAgain 
     });
   });
 });
@@ -49,6 +63,7 @@ router.get('/home', function(req, res, next) {
 router.post('/home', function(req, res, next) {
   
   previousQuestion = shuffledQuestions.shift();
+
   if(shuffledQuestions.length == 0){
     if(req.body.answer == previousQuestion.correct_answer){score += 1;}
     res.render('endGame', {
@@ -60,12 +75,17 @@ router.post('/home', function(req, res, next) {
   if(req.body.answer == previousQuestion.correct_answer){
     score += 1;
     answerStatus= "Correct!";
+    tryAgain= "disabled";
 }
-else {answerStatus= "Incorrect"}
+else {
+  answerStatus= "Incorrect";
+  tryAgain= "";
+}
 
   shuffleArray(shuffledQuestions);
   answers = [shuffledQuestions[0].option_1, shuffledQuestions[0].option_2, shuffledQuestions[0].option_3, shuffledQuestions[0].correct_answer];
   shuffleArray(answers);
+
   
   res.render('home', {
     phrase: shuffledQuestions[0].phrase,
@@ -75,8 +95,8 @@ else {answerStatus= "Incorrect"}
       answer3: answers[2],
       answer4: answers[3],
       score: score, 
-      answerStatus: answerStatus
-      
+      answerStatus: answerStatus,
+      tryagain: tryAgain
   });
 
 });

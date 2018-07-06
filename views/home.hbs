@@ -7,15 +7,15 @@
             <form action="/home" method="POST" class="answers">
                 <input type="hidden" name="question_id" value="{{id}}">
                 <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer1}}">{{answer1}}</button>
-                <button type="submit" class="btn btn-outline-light btn-lg hvr-grow"name="answer" value="{{answer2}}">{{answer2}}</button>
+                <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer2}}">{{answer2}}</button>
                 <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer3}}">{{answer3}}</button>
                 <button type="submit" class="btn btn-outline-light btn-lg hvr-grow" name="answer" value="{{answer4}}">{{answer4}}</button>
             </form>
+            <button id="tryAgain" name="redo" class="btn btn-outline-light btn-lg hvr-grow small"{{tryAgain}}>Try Again</button>
+            <button id="nextQuestion" name="continue" class="btn btn-outline-light btn-lg hvr-grow small">Continue</button>
             <h3>{{answerStatus}}</h3>
-            <button class="btn btn-outline-light btn-lg hvr-grow">Try Again</button>
-            <button class="btn btn-outline-light btn-lg hvr-grow">Continue</button>
             <h1>SCORE: {{score}}</h1>
-            <a href="/" class="btn btn-outline-light btn-lg hvr-grow">Log Out</a>
+            <a href="/" class="btn btn-outline-light btn-lg hvr-grow large">Log Out</a>
 
         </div>
     </div>
